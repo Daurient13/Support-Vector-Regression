@@ -1,2 +1,2 @@
-# Support-Vector-Regression
+# Support-Vector-Regressor
 # With carprice dataset
