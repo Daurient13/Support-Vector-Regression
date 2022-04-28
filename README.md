@@ -43,12 +43,13 @@ which i have explained before, the dataset has a column index called ID
 ## Mini Exploratory Data Analysis
 I always work on data science projects with simple think so that I can benchmark.
 Using a simple model to benchmark. And most of the time it's more efficient and sometimes find a good one. but at the beginning I did mini Exploratory Data Analysis.
+because **i focus more on the algorithm**
 
 In the dataset there is data that has no values ​​in several columns namely Engine_CC, Power_bhp, and Seats, but I leave it as is because I think it is an important feature. i will predict the price of the car.
 I only removed the Name column which is the name of the car. Actually I can use Name for feature engineering. But it takes more effort to extract, and usually I do that when I don't get good score.
 
 ## Dataset Splitting
-i split the data into X, and y.
+split the data into X, and y
 
 X = all columns except the target column.
 
@@ -59,16 +60,16 @@ test_size = 0.2 (which means 80% for train, and 20% for test)
 ## Training
 In the Training step there are 3 main things that I specify.
 
-First, the preprocessor: here the columns will be grouped into numeric and categoric.
+First, **the preprocessor**: here the columns will be grouped into numeric and categoric.
 
 included in the numeric column are: 'Year', 'Kilometers_Driven', 'Mileage_kmpl', 'Engine_CC', 'Power_bhp', 'Seats'.
 
 and in the categoric column are: 'Location', 'Fuel_Type', 'Transmission', 'Owner_Type'.
 in categorical column I do encoding with onehot encoder
 
-second, pipeline: contains the preprocessor as 'prep' which I defined earlier, and the algorithm as 'algo' which in this case I use Support Vector Regressor(SVR).
+second, **pipeline**: contains the preprocessor as 'prep' which I defined earlier, and the algorithm as 'algo' which in this case I use Support Vector Regressor(SVR).
 
-and third, tuning with Grid Search: in this case I use the tuning recommendations (gsp.svm_params) that often occur in many cases. but does not rule out hyperparameter tuning if the model results are not good.
+and third, tuning with **Grid Search**: in this case I use the tuning recommendations (gsp.svm_params) that often occur in many cases. but does not rule out hyperparameter tuning if the model results are not good.
 with cross validation = 3.
 
 ### results and scalling
@@ -79,3 +80,14 @@ There are several types of scaling, including standard, minmax, and robust. for 
 
 as we can see in the #Scalling can help SVR and KNN on the notebook.
 we can see the score increased very much. in the end we have to try everything. in the end the data will choose what kind of model it will use.
+
+# Polynomial Features
+in the last attempt, I put Polynomials into the model. 
+here the tuning parameter that i used:
+
+**{'prep__numeric__poly__degree': [1, 2, 3],
+ 'prep__numeric__poly__interaction_only': [True, False],
+ 'algo__gamma': array([1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03]),
+ 'algo__C': array([1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03])}**
+ 
+ it just a recommendation, you can make your own grid parameters.
