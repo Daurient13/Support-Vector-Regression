@@ -85,12 +85,12 @@ we can see the score increased very much. in the end we have to try everything. 
 in the last attempt, I put Polynomials into the model. 
 here the tuning parameter that i used:
 
-**{'prep__numeric__poly__degree': [1, 2, 3],
+**{'prep__numeric__poly__degree': [1, 2, 3]**,
 
- 'prep__numeric__poly__interaction_only': [True, False],
+**'prep__numeric__poly__interaction_only': [True, False],**
  
- 'algo__gamma': array([1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03]),
+ **'algo__gamma': array([1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03]),**
  
- 'algo__C': array([1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03])}**
+ **'algo__C': array([1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03])}**
  
  it just a recommendation, you can make your own grid parameters.
