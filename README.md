@@ -35,7 +35,28 @@ Price: the price i predict
 
 # Explanation:
 ## Import Package
-import common package
+import common package:
+
+import numpy as np
+
+import pandas as pd
+
+
+from sklearn.model_selection import train_test_split
+
+from sklearn.pipeline import Pipeline
+
+from sklearn.compose import ColumnTransformer
+
+
+from jcopml.pipeline import num_pipe, cat_pipe
+
+from jcopml.utils import save_model, load_model
+
+from jcopml.plot import plot_missing_value
+
+from jcopml.feature_importance import mean_score_decrease
+
 
 ## Import Dataset
 which i have explained before, the dataset has a column index called ID
